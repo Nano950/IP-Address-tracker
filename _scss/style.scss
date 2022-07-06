@@ -102,3 +102,12 @@ p {
     line-height: 2px;
     letter-spacing: -0.18px;
 }
+
+.map-display {
+    background-color: blue;
+    position: fixed;
+    bottom: 0;
+    height: 65%;
+    width: 100%;
+    z-index: -1;
+}
