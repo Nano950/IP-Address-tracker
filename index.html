@@ -6,7 +6,13 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | IP Address Tracker</title>
+  <title>Frontend Mentor | <h2>IP Address</h2> Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./_css/normalize.css" >
+  <link rel="stylesheet" href="./_css/style.css">       
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -16,19 +22,50 @@
 </head>
 <body>
 
-  IP Address Tracker
+  <main>
+    <div class="blue-background"></div>
+    <div class="map-display"></div>
 
-  Search for any IP address or domain
+    <section class="info-box">
+      <h1>IP Address Tracker</h1>
+      <div class ="search-bar">
+        <form>
+          <input type="text">
+          <button type="submit"><img src="./images/icon-arrow.svg"></button> <!--whenever the img element is removed the textfield moves outside of containers-->
+        </form> 
+      </div>
+      
+      <div>
+        <h2>IP Address</h2>
+        <p></p>
+      </div>
 
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+      <div>
+        <h2>Location</h2>
+        <p></p>
+      </div>
+
+      <div>
+        <h2>Timezone</h2>
+        <p>UTC</p> <!-- add offset value dynamically using the API -->
+      </div>
+
+      <div>
+        <h2>ISP</h2>
+        <p></p>
+      </div>
+    </section>
+
+    
+   
+  </main>
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </footer>
+  <script src="/javascript/index.js"></script> 
 </body>
 </html>
