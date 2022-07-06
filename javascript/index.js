@@ -5,10 +5,10 @@ const uriString = `https://api.ipgeolocation.io/ipgeo?apiKey=${apikey}`;
 
 // page elements
 const userInput = document.getElementById("input");
-const form = document.forms[0];
+const form = document.getElementById("form");
 
 // async function to get location info
-const locationInfo = () => {
+const displayLocation = () => {
     const ipAddress = userInput.value;
     const rawURI = uriString + `&ip=${ipAddress}` + "&fields=state_prov,city,zipcode,latitude,longitude,isp,time_zone";
     const endppoint = encodeURI(rawURI);
@@ -18,15 +18,40 @@ const locationInfo = () => {
             if (response.ok) {
                 return response.json();
             }})
-        // use static google map to display location with a marker
-        // separtate map stuff into a new function
         .then ( data => {
-            parsedData = JSON.parse(data);
-            const mapAPI = "e964de9e716b449cb3be7cacafad0fd5";
-            const mapURIString = `https://maps.geoapify.com/v1/staticmap?apiKey=${mapAPI}`;
-            const mapCenter =[parsedData.latitude,data.longitude];
-            
+            console.log(data);
 
-        })
-        
-}  
+            // create map image
+            const mapAPI = "AIzaSyBOhgRrICsrRjqjNgbhty5v90TJ1gnoMqQ";
+            const mapURI = "https://maps.googleapis.com/maps/api/staticmap?";
+            
+            // coordinates
+            const latitude = data.latitude;
+            const longitude = data.longitude;
+
+            // html elements
+            const mapImage = document.getElementById("map");
+            const address = document.getElementById("ip-address");
+            const location = document.getElementById("location");
+            const timeZone = document.getElementById("timezone");
+            const isp = document.getElementById("isp");
+
+            // display map to screen
+            mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=375x538&" + `key=${mapAPI}`;
+            mapURILink = encodeURI(mapURIString);
+            mapImage.setAttribute('src', mapURILink);
+
+            // render rest of information in info-conatiner
+            address.innerHTML = `${data.ip}`;
+            location.innerHTML = `${data.city}, ${data.state_prov} ${data.zipcode}`;
+            timeZone.innerHTML = `${data.time_zone.current_time}`;
+            isp.innerHTML = `${data.isp}`;
+        }       
+    )     
+}
+
+// get image of map
+form.addEventListener("submit", event => {
+    event.preventDefault();
+    locationData = displayLocation();
+});

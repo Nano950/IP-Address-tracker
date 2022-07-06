@@ -24,12 +24,12 @@
 
   <main>
     <div class="blue-background"></div>
-    <div class="map-display"></div>
+    <div class="map-display"><img id="map" src="#"></div>
 
     
       <h1>IP Address Tracker</h1>
       <div class ="search-bar">
-        <form>
+        <form id="form">
           <input id="input" type="text">
           <button type="submit"><img src="./images/icon-arrow.svg"></button> <!--whenever the img element is removed the textfield moves outside of containers-->
         </form> 
@@ -38,22 +38,22 @@
      <section class="info-container"> 
       <div class ="info">
         <h2>IP Address</h2>
-        <p>test</p>
+        <p id="ip-address"></p>
       </div>
 
       <div class ="info">
         <h2>Location</h2>
-        <p>test</p>
+        <p id="location"></p>
       </div>
 
       <div class ="info" ">
         <h2>Timezone</h2>
-         <p>test</p><!-- add offset value dynamically using the API -->
+         <p id="timezone"></p><!-- add offset value dynamically using the API -->
       </div>
 
       <div class ="info"">
         <h2>ISP</h2>
-        <p>test</p>
+        <p id="isp"></p>
       </div>
     </section>
 
