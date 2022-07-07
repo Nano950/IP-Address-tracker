@@ -37,7 +37,7 @@ const displayLocation = () => {
             const isp = document.getElementById("isp");
 
             // display map to screen
-            mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=375x538&" + `key=${mapAPI}`;
+            mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=6000x3000&" + `key=${mapAPI}`;
             mapURILink = encodeURI(mapURIString);
             mapImage.setAttribute('src', mapURILink);
 
