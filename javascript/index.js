@@ -1,4 +1,4 @@
-import { mapAPI, locationApiKey } from "./config";
+import { mapAPI, locationApiKey } from "./config.js";
 
 // api information
 const uriString = `https://api.ipgeolocation.io/ipgeo?apiKey=${locationApiKey}`;
