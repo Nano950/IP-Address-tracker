@@ -1,3 +1,4 @@
+console.log("hi");
 import { mapAPI, locationApiKey } from "./javascript/config.js";
 
 // api information
