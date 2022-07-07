@@ -19,7 +19,7 @@ const displayLocation = () => {
                 return response.json();
             }})
         .then ( data => {
-            console.log(data);
+            // console.log(data);
 
             // create map image
             const mapAPI = "AIzaSyBOhgRrICsrRjqjNgbhty5v90TJ1gnoMqQ";
@@ -48,7 +48,44 @@ const displayLocation = () => {
             isp.innerHTML = `${data.isp}`;
         }       
     )     
-}
+};
+
+const loadUserIpInfo =  function(){
+    fetch(uriString)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(userData => {
+            const mapAPI = "AIzaSyBOhgRrICsrRjqjNgbhty5v90TJ1gnoMqQ";
+            const mapURI = "https://maps.googleapis.com/maps/api/staticmap?";
+
+            // coordinates
+            const latitude = userData.latitude;
+            const longitude = userData.longitude;
+
+            // html elements
+            const mapImage = document.getElementById("map");
+            const address = document.getElementById("ip-address");
+            const location = document.getElementById("location");
+            const timeZone = document.getElementById("timezone");
+            const isp = document.getElementById("isp");
+
+            // display map to screen
+            mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=6000x3000&" + `key=${mapAPI}`;
+            mapURILink = encodeURI(mapURIString);
+            mapImage.setAttribute('src', mapURILink);
+
+            // render rest of information in info-conatiner
+            address.innerHTML = `${userData.ip}`;
+            location.innerHTML = `${userData.city}, ${userData.state_prov} ${userData.zipcode}`;
+            timeZone.innerHTML = `${userData.time_zone.current_time}`;
+            isp.innerHTML = `${userData.isp}`;
+        });
+};
+
+document.onload = loadUserIpInfo();
 
 // get image of map
 form.addEventListener("submit", event => {

@@ -50,6 +50,7 @@ input {
     border-radius: 18px 0 0 18px;
     font-family: Rubik, sans-serif;
     padding-left: 10px;
+    min-width: 201px;
 }
 
 button {
@@ -64,7 +65,7 @@ button {
     padding: 20px 0;
 }
 
-@media only screen and (min-width: 376px ) {
+@media only screen and (min-width: 1024px ) {
     input {
         width: 555px;
     } 
@@ -87,20 +88,47 @@ button {
     padding: 8px;
 }
 
-@media only screen and (min-width: 376px ) {
+@media only screen and (min-width: 1024px ) {
 
     .info-container {
-        width: 1200px;
+        // width: none;
+        width:80% ;
     }
     .info {
         display: inline-block;
         border-left: 1px solid;
         border-color: rgba(0, 0, 0, 0.3);
+        min-width:300px;
     }
 
-    .info:nth-child(1){
+    .info:nth-child(1) {
         border-left: none;
     }
+
+    .info:nth-child(3) {
+        border-left: none;
+    }
+}
+
+@media only screen and (min-width: 1178px ) {
+    .info {
+        border-left: none;
+
+    }
+}
+
+
+@media only screen and (min-width: 1580px ) {
+    .info {
+        border-left: 1px solid;
+        border-color: rgba(0, 0, 0, 0.3); 
+    }
+    
+    .info:nth-child(3) {
+        border-left: 1px solid;
+        border-color: rgba(0, 0, 0, 0.3);
+    }
+
 }
 
 .info {
