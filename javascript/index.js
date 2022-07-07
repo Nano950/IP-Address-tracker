@@ -20,7 +20,6 @@ const displayLocation = () => {
                 return response.json();
             }})
         .then ( data => {
-            // console.log(data);
 
             // create map image
             const mapURI = "https://maps.googleapis.com/maps/api/staticmap?";
