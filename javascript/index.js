@@ -1,6 +1,7 @@
+import { mapAPI, locationApiKey } from "./config.js";
+
 // api information
-const apikey = "e53b0be07c46481681a335df69fb87cc";
-const uriString = `https://api.ipgeolocation.io/ipgeo?apiKey=${apikey}`;
+const uriString = `https://api.ipgeolocation.io/ipgeo?apiKey=${locationApiKey}`;
 
 
 // page elements
@@ -22,7 +23,6 @@ const displayLocation = () => {
             // console.log(data);
 
             // create map image
-            const mapAPI = "AIzaSyBOhgRrICsrRjqjNgbhty5v90TJ1gnoMqQ";
             const mapURI = "https://maps.googleapis.com/maps/api/staticmap?";
             
             // coordinates
@@ -37,8 +37,8 @@ const displayLocation = () => {
             const isp = document.getElementById("isp");
 
             // display map to screen
-            mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=6000x3000&" + `key=${mapAPI}`;
-            mapURILink = encodeURI(mapURIString);
+            const mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=6000x3000&" + `key=${mapAPI}`;
+            const mapURILink = encodeURI(mapURIString);
             mapImage.setAttribute('src', mapURILink);
 
             // render rest of information in info-conatiner
@@ -58,7 +58,6 @@ const loadUserIpInfo =  function(){
             }
         })
         .then(userData => {
-            const mapAPI = "AIzaSyBOhgRrICsrRjqjNgbhty5v90TJ1gnoMqQ";
             const mapURI = "https://maps.googleapis.com/maps/api/staticmap?";
 
             // coordinates
@@ -73,8 +72,8 @@ const loadUserIpInfo =  function(){
             const isp = document.getElementById("isp");
 
             // display map to screen
-            mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=6000x3000&" + `key=${mapAPI}`;
-            mapURILink = encodeURI(mapURIString);
+            const mapURIString = mapURI + `center=${latitude},${longitude}` + "&zoom=15&size=6000x3000&" + `key=${mapAPI}`;
+            const mapURILink = encodeURI(mapURIString);
             mapImage.setAttribute('src', mapURILink);
 
             // render rest of information in info-conatiner
@@ -90,5 +89,5 @@ document.onload = loadUserIpInfo();
 // get image of map
 form.addEventListener("submit", event => {
     event.preventDefault();
-    locationData = displayLocation();
+    displayLocation();
 });
